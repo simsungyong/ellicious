@@ -1,5 +1,6 @@
 # ellicious
 ellicious
+Hello~!
 
 # dependency 설치
 yarn add graphql-yoga
