@@ -1,0 +1,109 @@
+type User {
+  id: ID!
+  username: String!
+  email: String!
+  firstName: String!
+  lastName: String!
+  fullName: String
+  posts: [Post!]!
+  likes: [Like!]!
+  following: [User!]!
+  followers: [User!]!
+  bio: String
+  comments: [Comment!]!
+  rooms: [Room!]!
+  loginSecret: String
+  isFollowing: Boolean!
+  isSelf: Boolean!
+  createdAt: String
+  updatedAt: String
+  picks: [Post!]
+  categories: [Category!]
+  
+}
+
+type Post {
+  id: ID!
+  files: [File!]!
+  location: String
+  caption: String!
+  likes: [Like!]!
+  user: User!
+  comments: [Comment!]!
+  isLiked: Boolean!
+  likeCount: Int!
+  createdAt: String
+  updatedAt: String
+  rating: Int!
+  storeInfo:Store
+  picked: [User!]! 
+  isPicked: Boolean!
+  details: [String!]!
+  pickCount: Int!
+}
+
+type Like {
+  id: ID!
+  user: User!
+  post: Post!
+  createdAt: String
+  updatedAt: String
+}
+
+type Comment {
+  id: ID!
+  text: String!
+  user: User!
+  post: Post!
+  createdAt: String
+  updatedAt: String
+}
+
+type File {
+  id: ID!
+  url: String!
+  post: Post!
+  createdAt: String
+  updatedAt: String
+}
+
+type Room {
+  id: ID!
+  participants: [User!]!
+  messages: [Message!]!
+  createdAt: String
+  updatedAt: String
+}
+
+type Message{
+  id: ID!
+  text: String!
+  from: User!
+  to: User!
+  room: Room!
+  createdAt: String
+  updatedAt: String
+}
+
+type UserProfile{
+  user: User!
+  posts: [Post!]!
+  createdAt: String
+  updatedAt: String
+}
+
+type Category{
+  id: ID! 
+  user: User! 
+  name: String!
+  posts: [Post!] 
+}
+
+type Store{
+  id: ID!
+  name: String!
+  location: String! 
+  telnum: String
+  operatingTime: String
+  menu: String
+}
