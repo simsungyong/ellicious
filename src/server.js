@@ -8,8 +8,10 @@ const typeDefs = `
         hello: String!
     }`;
 
-const resolvers={
-    hello:()=>"Hi"
+const resolvers = {
+    Query:{
+    hello: () => "Hi"
+    }
 };
 
 const server = new GraphQLServer({typeDefs, resolvers});
