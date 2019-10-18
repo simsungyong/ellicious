@@ -74,7 +74,7 @@ type Message{
 type Category{
   id: ID! @id
   user: User! @relation(name: "UserToCategory")
-  name: String!
+  categoryName: String!
   posts: [Post!] 
 }
 

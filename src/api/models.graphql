@@ -95,7 +95,7 @@ type UserProfile{
 type Category{
   id: ID! 
   user: User! 
-  name: String!
+  categoryName: String!
   posts: [Post!] 
 }
 
