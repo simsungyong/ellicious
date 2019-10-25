@@ -37,8 +37,9 @@ yarn add passport passport-jwt jsonwebtoken
 - [o] upload post
 - [o] create Category
 - [o] Edit CategoryName
-- [] like unlike a post
-- [] comment on a post
+- [o] like unlike a post
+- [o] comment on a post
+- [o] delete a comment
 - [o] edit the post
 - [] search by user
 - [] search by location

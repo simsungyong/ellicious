@@ -7,7 +7,7 @@ export default {
             console.log(request.user);
             const {email} = args;
             const loginSecret = generateSecretCode();   //secret code 생성  utils에 명시해놈.
-            console.log(loginSecret);
+            
             try{
                 await sendSecretMail(email, loginSecret);
                 await prisma.updateUser({data:{loginSecret}, where:{email}});
