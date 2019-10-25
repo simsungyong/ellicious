@@ -18,14 +18,14 @@ type User {
   createdAt: String
   updatedAt: String
   picks: [Post!]
-  categories: [Category!]
+  category: [Category!]
   
 }
 
 type Post {
   id: ID!
-  files: [File!]!
-  location: String
+  files: [File!]
+  location: String!
   caption: String!
   likes: [Like!]!
   user: User!
@@ -40,6 +40,7 @@ type Post {
   isPicked: Boolean!
   details: [String!]!
   pickCount: Int!
+  category: Category!
 }
 
 type Like {

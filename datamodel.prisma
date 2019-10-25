@@ -13,7 +13,7 @@ type User {
   rooms: [Room!]!
   loginSecret: String
   picks : [Post!] @relation(name: "PickRelation")
-  categories: [Category!] @relation(name: "UserToCategory", onDelete: CASCADE)
+  category : [Category!] @relation(name: "UserToCategory", onDelete: CASCADE)
 }
 
 type Post {
@@ -29,6 +29,7 @@ type Post {
   rating: Int!
   storeInfo:[Store!]!
   picked: [User!] @relation(name: "PickRelation")
+  category: Category! @relation(name: "CategoryInPost")
   
 }
 
@@ -75,7 +76,7 @@ type Category{
   id: ID! @id
   user: User! @relation(name: "UserToCategory")
   categoryName: String!
-  posts: [Post!] 
+  posts: [Post!] @relation(name: "CategoryInPost", onDelete: CASCADE)
 }
 
 type Store{
