@@ -12,7 +12,7 @@ type User {
   comments: [Comment!]! @relation(name: "CommentsOfUser", onDelete: CASCADE)
   rooms: [Room!]!
   loginSecret: String
-  picks : [Post!] @relation(name: "PickRelation")
+  picks : [Pick!] @relation(name: "UsertoPickRelation", onDelete:CASCADE)
   category : [Category!] @relation(name: "UserToCategory", onDelete: CASCADE)
 }
 
@@ -28,15 +28,15 @@ type Post {
   updatedAt: DateTime! @updatedAt
   rating: Int!
   storeInfo:[Store!]!
-  picked: [User!] @relation(name: "PickRelation")
+  picked: [Pick!] @relation(name: "PosttoPickRelation", onDelete: CASCADE)
   category: Category! @relation(name: "CategoryInPost")
   
 }
 
 type Like {
-  id: ID! @id
   user: User @relation(name:"LikesOfUser")
   post: Post @relation(name: "PostToLike")
+  id: ID! @id
   createdAt: DateTime! @createdAt
   updatedAt: DateTime! @updatedAt
 }
@@ -86,4 +86,12 @@ type Store{
   telnum: String @unique
   operatingTime: String
   menu: String
+}
+
+type Pick{
+  id: ID! @id
+  user: User! @relation(name: "UsertoPickRelation")
+  post: Post! @relation(name: "PosttoPickRelation")
+  createdAt: DateTime! @createdAt
+  updatedAt: DateTime! @updatedAt
 }

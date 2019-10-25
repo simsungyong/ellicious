@@ -17,7 +17,7 @@ type User {
   isSelf: Boolean!
   createdAt: String
   updatedAt: String
-  picks: [Post!]
+  picks: [Pick!]
   category: [Category!]
   
 }
@@ -36,7 +36,7 @@ type Post {
   updatedAt: String
   rating: Int!
   storeInfo:Store
-  picked: [User!]! 
+  picked: [Pick!]! 
   isPicked: Boolean!
   details: [String!]!
   pickCount: Int!
@@ -50,6 +50,8 @@ type Like {
   createdAt: String
   updatedAt: String
 }
+
+
 
 type Comment {
   id: ID!
@@ -107,4 +109,12 @@ type Store{
   telnum: String
   operatingTime: String
   menu: String
+}
+
+type Pick{
+  id: ID! 
+  user: User! 
+  post: Post! 
+  createdAt: String
+  updatedAt: String 
 }

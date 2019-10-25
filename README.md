@@ -41,12 +41,14 @@ yarn add passport passport-jwt jsonwebtoken
 - [o] comment on a post
 - [o] delete a comment
 - [o] edit the post
+- [] make computed.js in USER
+- [] make computed.js in POST
 - [] search by user
 - [] search by location
 - [o] follow
 - [o] unfollow user
 - [] see my profile
 - [] see user profile
-- [] see the feed
+- [o] see the feed
 - [] see store information
 - [] 콕집기
