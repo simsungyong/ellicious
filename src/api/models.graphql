@@ -89,7 +89,7 @@ type Message{
 }
 
 type UserProfile{
-  user: User
+  user: User!
   posts: [Post!]
   categories: [Category!]
   picks: [Pick!]

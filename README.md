@@ -35,7 +35,7 @@ yarn add passport passport-jwt jsonwebtoken
 - [o] requestSecret
 - [o] confirmSecret
 - [o] upload post
-- [o] create Category
+- [o] create Categoryå
 - [o] Edit CategoryName
 - [o] like unlike a post
 - [o] comment on a post
@@ -48,8 +48,8 @@ yarn add passport passport-jwt jsonwebtoken
 - [o] see user profile
 - [o] see the feed
 - [o] edit user
+- [o] see my profile
 - [] 콕집기
 - [] search by user
 - [] search by location
-- [] see my profile
 - [] see store information

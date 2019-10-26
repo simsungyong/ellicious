@@ -21,6 +21,7 @@ export default {
              });
          },
          likeCount: (parent)=>prisma.likesConnection({where:{post:{id:parent.id}}}).aggregate().count(),//좋아요 연결
+         pickCount: (parent)=>prisma.picksConnection({where:{post:{id:parent.id}}}).aggregate().count(), //콕집기 개수
          isPicked: async(parent, _ , {request})=>{
             const {user} = request;
             const {id} = parent;
