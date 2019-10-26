@@ -49,7 +49,8 @@ yarn add passport passport-jwt jsonwebtoken
 - [o] see the feed
 - [o] edit user
 - [o] see my profile
-- [] 콕집기
+- [~ing] fragments정리
+- [~ing] 콕집기
 - [] search by user
 - [] search by location
 - [] see store information
