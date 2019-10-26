@@ -24,7 +24,20 @@ export default {
          isPicked: async(parent, _ , {request})=>{
             const {user} = request;
             const {id} = parent;
-
+            return prisma.$exists.pick({
+                AND: [
+                    {
+                        user:{
+                            id:user.id
+                        }
+                    },
+                    {
+                        post:{
+                            id
+                        }
+                    }
+                ]
+            });
             
          }
 

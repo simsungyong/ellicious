@@ -89,8 +89,10 @@ type Message{
 }
 
 type UserProfile{
-  user: User!
-  posts: [Post!]!
+  user: User
+  posts: [Post!]
+  categories: [Category!]
+  picks: [Pick!]
   createdAt: String
   updatedAt: String
 }
