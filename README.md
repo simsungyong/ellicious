@@ -50,7 +50,10 @@ yarn add passport passport-jwt jsonwebtoken
 - [o] edit user
 - [o] see my profile
 - [~ing] fragments정리
-- [~ing] 콕집기
-- [] search by user
+- [o] 콕집기
+- [o] 대댓글(다시 봐야함)
+- [o] search by user
+- [o] see Rooms(message room)
+- [o] send private message 
 - [] search by location
 - [] see store information

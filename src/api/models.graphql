@@ -19,6 +19,7 @@ type User {
   updatedAt: String
   picks: [Pick!]
   category: [Category!]
+  avatar: String
   
 }
 
@@ -57,7 +58,8 @@ type Comment {
   id: ID!
   text: String!
   user: User!
-  post: Post!
+  post: Post
+  headComment: Comment
   createdAt: String
   updatedAt: String
 }

@@ -4,6 +4,7 @@ type User {
   email: String! @unique
   firstName: String! @default(value: "")
   lastName: String!
+  avatar: String
   posts: [Post!]! @relation(name:"PostsOfUser", onDelete: CASCADE)
   likes: [Like!]! @relation(name:"LikesOfUser" onDelete: CASCADE)
   following: [User!]! @relation(name: "FollowRelation")
@@ -44,6 +45,7 @@ type Like {
 type Comment {
   id: ID! @id
   text: String!
+  headComment: Comment
   user: User @relation(name: "CommentsOfUser")
   post: Post @relation(name:"CommentOfPost")
   createdAt: DateTime! @createdAt

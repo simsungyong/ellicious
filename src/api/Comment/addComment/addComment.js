@@ -6,22 +6,43 @@ export default {
         addComment: async (_, args, {request})=>{
             isAuthenticated(request);
             const {user} = request;
-            const {text, postId} = args;
+            const {text, postId, headComment} = args;
 
-            const comment = await prisma.createComment({
-                user:{
-                    connect:{
-                        id: user.id
-                    }
-                },
-                post:{
-                    connect:{
-                        id: postId
-                    }
-                },
-                text
-            });
-            return comment;
+            if(!headComment){
+                return prisma.createComment({
+                    user:{
+                        connect:{
+                            id: user.id
+                        }
+                    },
+                    post:{
+                        connect:{
+                            id: postId
+                        }
+                    },
+                    text
+                });
+            }else {
+                return prisma.createComment({
+                    user:{
+                        connect:{
+                            id:user.id
+                        }
+                    },
+                    headComment:{
+                        connect:{
+                            id:headComment
+                        }
+                    },
+                    post:{
+                        connect:{
+                            id: postId
+                        }
+                    },
+                    text
+                });
+            }
+            
         }
     }
 }
