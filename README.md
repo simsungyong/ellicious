@@ -55,5 +55,6 @@ yarn add passport passport-jwt jsonwebtoken
 - [o] search by user
 - [o] see Rooms(message room)
 - [o] send private message 
+- [] 삭제 계정
 - [] search by location
 - [] see store information
