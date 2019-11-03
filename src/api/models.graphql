@@ -35,7 +35,8 @@ type Post {
   createdAt: String
   updatedAt: String
   rating: Int!
-  storeInfo:Store
+  storeLocation: String!
+  storeName: String!
   picked: [Pick!]! 
   isPicked: Boolean!
   details: [String!]!
@@ -105,15 +106,7 @@ type Category{
   posts: [Post!] 
 }
 
-type Store{
-  id: ID!
-  name: String!
-  location: String! 
-  telnum: String
-  operatingTime: String
-  menu: String
-  posts: [Post!]
-}
+
 
 type Pick{
   id: ID! 

@@ -21,13 +21,14 @@ type Post {
   id: ID! @id
   files: [File!]! @relation(name: "PostToFile", onDelete: CASCADE)
   caption: String!
+  storeName: String!
+  storeLocation: String!
   likes: [Like!]! @relation(name: "PostToLike", onDelete: CASCADE)
   user: User @relation(name: "PostsOfUser")
   comments: [Comment!]! @relation(name:"CommentOfPost", onDelete: CASCADE)
   createdAt: DateTime! @createdAt
   updatedAt: DateTime! @updatedAt
   rating: Int!
-  storeInfo:[Store!]! @relation(name:"StoreOfPost")
   picked: [Pick!] @relation(name: "PosttoPickRelation", onDelete: CASCADE)
   category: Category! @relation(name: "CategoryInPost")
   
@@ -78,16 +79,6 @@ type Category{
   user: User! @relation(name: "UserToCategory")
   categoryName: String!
   posts: [Post!] @relation(name: "CategoryInPost", onDelete: CASCADE)
-}
-
-type Store{
-  id: ID! @id
-  name: String!
-  location: String! 
-  telnum: String @unique
-  operatingTime: String
-  menu: String
-  posts: [Post!] @relation(name:"StoreOfPost")
 }
 
 type Pick{

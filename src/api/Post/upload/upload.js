@@ -7,7 +7,8 @@ export default {
             isAuthenticated(request);
             const {user} = request;
             const { 
-                storeInfo,
+                storeName,
+                storeLocation,
                 caption,
                 files,
                 rating,
@@ -16,11 +17,13 @@ export default {
             
             const post = await prisma.createPost({
                 caption,
+                storeName,
+                storeLocation,
                 rating,
                 details,
                 category:{connect:{id:category}},
                 user:{connect:{id:user.id}},
-                storeInfo:{connect:{id:storeInfo.id}}
+                
             });
 
             files.forEach(
