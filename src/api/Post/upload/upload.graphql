@@ -5,5 +5,5 @@ type Mutation{
         rating: Int!, 
         category: String!, 
         details:[String!],
-        storeInfo: [Store!]) : Post!
+        storeInfo: String! : Post!
 }
