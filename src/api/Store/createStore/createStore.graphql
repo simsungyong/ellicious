@@ -1,0 +1,9 @@
+type Mutation{
+    createStore(
+        id: String!,
+        name: String!,
+        location: String!, 
+        telnum: String, 
+        operatingTime: String,
+        menu: String) : Store!
+}

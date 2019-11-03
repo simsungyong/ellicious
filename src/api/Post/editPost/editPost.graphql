@@ -7,7 +7,6 @@ type Mutation{
     editPost(
         id: String!
         caption: String, 
-        location:String!, 
         rating: Int!, 
         category: String!, 
         details:[String!],

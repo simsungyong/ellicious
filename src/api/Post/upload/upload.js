@@ -7,22 +7,20 @@ export default {
             isAuthenticated(request);
             const {user} = request;
             const { 
+                storeInfo,
                 caption,
                 files,
-                location,
                 rating,
                 category,  //categoryID
                 details} = args;
             
-            console.log(category);
-
             const post = await prisma.createPost({
                 caption,
-                location,
                 rating,
                 details,
                 category:{connect:{id:category}},
-                user:{connect:{id:user.id}}
+                user:{connect:{id:user.id}},
+                storeInfo:{connect:{id:storeInfo.id}}
             });
 
             files.forEach(

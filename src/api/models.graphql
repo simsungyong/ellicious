@@ -26,7 +26,6 @@ type User {
 type Post {
   id: ID!
   files: [File!]
-  location: String!
   caption: String!
   likes: [Like!]!
   user: User!
@@ -113,6 +112,7 @@ type Store{
   telnum: String
   operatingTime: String
   menu: String
+  posts: [Post!]
 }
 
 type Pick{

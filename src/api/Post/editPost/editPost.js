@@ -8,7 +8,7 @@ export default {
     Mutation: {
         editPost: async(_,args, {request})=>{
             isAuthenticated(request);
-            const {id, caption, location, rating, category, details, action} = args;
+            const {id, caption, rating, category, details, action} = args;
             const {user} = request;
 
             const post= await prisma.$exists.post({id, user: {id:user.id}});
@@ -18,7 +18,6 @@ export default {
                         where:{id},
                         data:{
                             caption,
-                            location, 
                             rating, 
                             details, 
                             category:{connect:{id:category}}

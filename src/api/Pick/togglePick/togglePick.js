@@ -24,7 +24,7 @@ export default {
             };
 
             try{
-                const existingPick = await prisma.$exists.like(filterOptions);
+                const existingPick = await prisma.$exists.pick(filterOptions);
                 if(existingPick){
                     await prisma.deleteManyPicks(filterOptions);
                 }else {
