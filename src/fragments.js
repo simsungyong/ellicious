@@ -7,7 +7,14 @@ export const USER_FRAGMENT = `
 export const COMMENT_FRAGMENT = `
     id
     text
-    headComment
+    headComment{
+        id
+        text
+        user{
+            ${USER_FRAGMENT}
+        }
+    }
+    
     user{
         ${USER_FRAGMENT}
     }`;

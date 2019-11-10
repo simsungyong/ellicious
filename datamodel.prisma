@@ -46,13 +46,16 @@ type Like {
 type Comment {
   id: ID! @id
   text: String!
-  headComment: String
   user: User @relation(name: "CommentsOfUser")
   post: Post @relation(name:"CommentOfPost")
   createdAt: DateTime! @createdAt
   updatedAt: DateTime! @updatedAt
   likes: [Like!]! @relation(name:"LikesInComment", onDelete:CASCADE)
+  headComment: Comment @relation(name: "RelationComment", onDelete:CASCADE)
+  childComment: [Comment!] @relation(name: "RelationComment")
 }
+
+
 
 type File {
   id: ID! @id

@@ -29,17 +29,18 @@ export default {
                             id:user.id
                         }
                     },
-                    headComment:{
-                        connect:{
-                            id:headComment
-                        }
-                    },
+                    
                     post:{
                         connect:{
                             id: postId
                         }
                     },
-                    text
+                    text,
+                    headComment:{
+                        connect:{
+                            id: headComment
+                        }
+                    }
                 });
             }
             
