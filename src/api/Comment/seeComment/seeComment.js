@@ -3,7 +3,7 @@ import {prisma} from '../../../../generated/prisma-client';
 
 export default {
     Query:{
-        seeComment:async(_,args,{request})=>{
+        seeComment: async(_,args)=>{
             
             const {postId, headComment} = args;
             /*const text = await prisma.comment({id});
@@ -20,16 +20,18 @@ export default {
                 orderBy:"createdAt_ASC"
             });
         }else{
-            prisma.comments({
+            return prisma.comments({
                 where:{
-                    post: {
-                        id: postId
+                    AND:[
+                    {
+                        post:{id: postId}
                     },
-                    headComment:{
-                        id: headComment
-                    }
-                }
-            })
+                    {
+                        headComment:{id:headComment}
+                    }]
+                },
+                orderBy:"createdAt_ASC"
+            });
         }
         }
     }
