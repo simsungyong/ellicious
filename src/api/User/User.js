@@ -45,8 +45,12 @@ export default{
             return user.id === parentId;
         },
         posts: ({id})=>prisma.user({id}).posts(),
-        following: ({id})=>prisma.user({id}).following(),
-        followers: ({id})=>prisma.user({id}).followers()
+        following: ({id})=>prisma.user({id}).users(),
+        followers: ({id})=>prisma.user({id}).users(),
+        category:({id})=>prisma.user({id}).categories(),
+        /*categoryCount: ({id})=>prisma
+            .usersConnection({where:{category_some}})*/
+
     }
     
 };
