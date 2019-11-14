@@ -34,8 +34,9 @@ export default{
             const { id: parentId} = parent;
             return user.id === parentId;
         },
-        posts: ({id})=>prisma.user({id}).posts()
-
+        posts: ({id})=>prisma.user({id}).posts(),
+        following: ({id})=>prisma.user({id}).following(),
+        followers: ({id})=>prisma.user({id}).followers()
     }
     
 };
