@@ -9,6 +9,9 @@ type User {
   likes: [Like!]!
   following: [User!]
   followers: [User!]
+  postsCount: Int!
+  followingCount: Int!
+  followersCount: Int!
   bio: String
   comments: [Comment!]!
   rooms: [Room!]!
@@ -30,6 +33,8 @@ type Post {
   likes: [Like!]!
   user: User!
   comments: [Comment!]!
+  commentCount: Int!
+  pickCount: Int!
   isLiked: Boolean!
   likeCount: Int!
   createdAt: String
@@ -40,7 +45,6 @@ type Post {
   picked: [Pick!]! 
   isPicked: Boolean!
   details: [String!]!
-  pickCount: Int!
   category: Category!
 }
 
