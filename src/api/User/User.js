@@ -2,6 +2,10 @@ import { prisma } from "../../../generated/prisma-client";
 
 export default{
     User : {
+        following: ({id})=>prisma.users({where:{followers_some:{id}}}),
+        followers: ({id})=>prisma.users({where:{following_some:{id}}}),
+        category:({id})=>prisma.categories({where:{user:{id}}}),
+        categoryCount:({id})=>prisma.categoriesConnection({where:{user:{id}}}).aggregate().count(),
         rooms: ({id})=>prisma.user({id}).rooms(),
         postsCount: ({ id }) => prisma.postsConnection({ where: { user: { id } } }).aggregate().count(),
         followingCount: ({ id }) =>
@@ -11,7 +15,7 @@ export default{
             .count(),
         followersCount: ({ id }) =>
         prisma
-            .usersConnection({ where: { following_none: { id } } })
+            .usersConnection({ where: { following_some: { id } } })
             .aggregate()
             .count(),
         fullName: parent=>{
@@ -45,9 +49,7 @@ export default{
             return user.id === parentId;
         },
         posts: ({id})=>prisma.user({id}).posts(),
-        following: ({id})=>prisma.user({id}).users(),
-        followers: ({id})=>prisma.user({id}).users(),
-        category:({id})=>prisma.user({id}).categories(),
+        
         /*categoryCount: ({id})=>prisma
             .usersConnection({where:{category_some}})*/
 
