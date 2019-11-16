@@ -22,7 +22,7 @@ type Post {
   files: [File!]! @relation(name: "PostToFile", onDelete: CASCADE)
   caption: String!
   storeName: String!
-  storeLot: String
+  storeLat: String
   placeId: String
   storeLong: String
   storeLocation: String!
