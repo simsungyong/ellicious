@@ -6,7 +6,7 @@ export default{
         followers: ({id})=>prisma.users({where:{following_some:{id}}}),
         category:({id})=>prisma.categories({where:{user:{id}}}),
         categoryCount:({id})=>prisma.categoriesConnection({where:{user:{id}}}).aggregate().count(),
-        rooms: ({id})=>prisma.user({id}).rooms(),
+        rooms: ({id})=>prisma.rooms({where:{participants_some:{id}}}),
         postsCount: ({ id }) => prisma.postsConnection({ where: { user: { id } } }).aggregate().count(),
         followingCount: ({ id }) =>
         prisma
