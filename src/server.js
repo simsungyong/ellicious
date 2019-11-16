@@ -6,6 +6,7 @@ import schema from './schema';
 import "./passport";
 import passport from "passport";
 import { authenticateJwt } from './passport';
+import { uploadMiddleware, uploadController } from './upload';
 
 console.log(process.env.PORT);
 const PORT = process.env.PORT || 4000;
@@ -13,5 +14,6 @@ const PORT = process.env.PORT || 4000;
 const server = new GraphQLServer({schema, context:({request})=>({request})});
 server.express.use(logger("dev"));
 server.express.use(authenticateJwt);
+server.express.post("/api/upload", uploadMiddleware, uploadController)
 
 server.start({port: PORT}, ()=> console.log(`running server on http://localhost:${PORT}`));
