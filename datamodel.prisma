@@ -28,7 +28,7 @@ type Post {
   comments: [Comment!]! @relation(name:"CommentOfPost", onDelete: CASCADE)
   createdAt: DateTime! @createdAt
   updatedAt: DateTime! @updatedAt
-  rating: Int!
+  rating: Float!
   picked: [Pick!] @relation(name: "PosttoPickRelation", onDelete: CASCADE)
   category: Category! @relation(name: "CategoryInPost")
   

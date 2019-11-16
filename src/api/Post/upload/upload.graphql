@@ -4,7 +4,7 @@ type Mutation{
         storeName: String!,
         storeLocation: String!, 
         files: [String!], 
-        rating: Int!, 
+        rating: Float!, 
         category: String!, 
         details:[String!]) : Post!
 }

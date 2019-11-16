@@ -40,7 +40,7 @@ type Post {
   likeCount: Int!
   createdAt: String
   updatedAt: String
-  rating: Int!
+  rating: Float!
   storeLocation: String!
   storeName: String!
   picked: [Pick!]! 
