@@ -26,7 +26,7 @@ export const uploadMiddleware = upload.single("file");
 
 export const uploadController = (req, res) => {
   const {
-    file: { location }
+    file:{location}
   } = req;
   res.json({ location });
 };
