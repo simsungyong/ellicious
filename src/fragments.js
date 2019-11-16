@@ -2,6 +2,9 @@ export const USER_FRAGMENT = `
     id
     username
     avatar
+    firstName
+    lastName
+    fullName
     `;
 
 export const COMMENT_FRAGMENT = `
