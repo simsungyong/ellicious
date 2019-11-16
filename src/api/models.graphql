@@ -33,6 +33,9 @@ type Post {
   caption: String!
   likes: [Like!]!
   user: User!
+  storeLot: String
+  placeId: String
+  storeLong: String
   comments: [Comment!]!
   commentCount: Int!
   pickCount: Int!
