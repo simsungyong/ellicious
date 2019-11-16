@@ -4,7 +4,7 @@ export const USER_FRAGMENT = `
     avatar
     firstName
     lastName
-    fullName
+    fullname
     `;
 
 export const COMMENT_FRAGMENT = `
