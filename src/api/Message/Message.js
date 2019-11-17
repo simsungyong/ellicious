@@ -2,7 +2,8 @@ import { prisma } from "../../../generated/prisma-client";
 
 export default {
     Message: {
-        room:({id})=>prisma.message({id}).room()
+        room:({id})=>prisma.message({id}).room(),
+        user:({id})=>prisma.message({id}).user()
     }
     
 }
