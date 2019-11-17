@@ -1,6 +1,6 @@
 import { prisma } from "../../../../generated/prisma-client";
 import { isAuthenticated } from "../../../middlewares";
-import { ROOM_FRAGMENT } from "../../../fragments";
+import { ROOM_FRAGMENT, MESSAGE_FRAGMENT } from "../../../fragments";
 export default {
     Mutation: {
         sendMessage: async(_, args, {request})=>{
@@ -39,7 +39,7 @@ export default {
                         id : room.id
                     }
                 }
-            });
+            }).$fragment(MESSAGE_FRAGMENT);
             
             
         }
