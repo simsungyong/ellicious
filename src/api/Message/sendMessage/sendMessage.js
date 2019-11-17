@@ -39,7 +39,7 @@ export default {
                         id : room.id
                     }
                 }
-            }).$fragment(MESSAGE_FRAGMENT);
+            })
         }
     }
 }
