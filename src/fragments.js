@@ -41,6 +41,9 @@ export const FILE_FRAGMENT = `
 export const MESSAGE_FRAGMENT = `
     id
     text
+    room {
+        id
+    }
     to {
         ${USER_FRAGMENT}
     }
