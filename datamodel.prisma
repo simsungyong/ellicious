@@ -34,6 +34,7 @@ type Post {
   rating: Float!
   picked: [Pick!] @relation(name: "PosttoPickRelation", onDelete: CASCADE)
   category: Category! @relation(name: "CategoryInPost")
+  details: [String!] @scalarList(strategy: RELATION)
   
 }
 
