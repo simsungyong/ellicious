@@ -22,9 +22,9 @@ type Post {
   files: [File!]! @relation(name: "PostToFile", onDelete: CASCADE)
   caption: String!
   storeName: String!
-  storeLat: String
+  storeLat: Float
+  storeLong: Float
   placeId: String
-  storeLong: String
   storeLocation: String!
   likes: [Like!]! @relation(name: "PostToLike", onDelete: CASCADE)
   user: User @relation(name: "PostsOfUser")
