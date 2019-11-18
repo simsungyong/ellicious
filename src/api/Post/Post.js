@@ -2,6 +2,7 @@ import { prisma } from "../../../generated/prisma-client";
 
 export default {
      Post: {
+        category: (parent)=>prisma.post({id:parent.id}).category(),
         likeCount: (parent)=>prisma.likesConnection({where:{post:{id:parent.id}}}).aggregate().count(),//좋아요 연결
         pickCount: (parent)=>prisma.picksConnection({where:{post:{id:parent.id}}}).aggregate().count(), //콕집기 개수
         files: ({id})=> prisma.post({id}).files(),
