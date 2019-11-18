@@ -33,9 +33,9 @@ type Post {
   caption: String!
   likes: [Like!]!
   user: User!
-  storeLat: String
+  storeLat: Float
+  storeLong: Float
   placeId: String
-  storeLong: String
   comments: [Comment!]!
   commentCount: Int!
   pickCount: Int!

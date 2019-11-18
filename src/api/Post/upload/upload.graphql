@@ -5,8 +5,8 @@ type Mutation{
         storeLocation: String!, 
         files: [String!], 
         rating: Float!,
-        storeLat: String,
-        storeLong: String,
+        storeLat: Float,
+        storeLong: Float,
         placeId: String, 
         category: String!, 
         details:[String!]) : Post!

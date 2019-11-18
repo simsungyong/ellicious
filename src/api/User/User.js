@@ -2,6 +2,7 @@ import { prisma } from "../../../generated/prisma-client";
 
 export default{
     User : {
+        picks:({id})=>prisma.user({id}).picks(),
         following: ({id})=>prisma.users({where:{followers_some:{id}}}),
         followers: ({id})=>prisma.users({where:{following_some:{id}}}),
         category:({id})=>prisma.categories({where:{user:{id}}}),
