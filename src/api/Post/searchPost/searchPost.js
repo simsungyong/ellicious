@@ -6,7 +6,8 @@ export default {
             where: {
                 OR: [
                     { storeLocation_starts_with: args.term },
-                    { storeName_starts_with: args.term }
+                    { storeName_starts_with: args.term },
+                    { placeId: args.term}
                 ]
             }
         })
