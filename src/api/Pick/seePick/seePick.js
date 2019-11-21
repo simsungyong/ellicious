@@ -3,12 +3,12 @@ import { isAuthenticated } from "../../../middlewares";
 
 export default {
     Query: {
-        seeCategory: async(_, args,{request})=>{
+        seePick: async(_, __,{request})=>{
             isAuthenticated(request);
-            const {userId} = args;
-            return prisma.categories({where:{
+            const {user} = request;
+            return prisma.picks({where:{
                 user:{
-                    id:user
+                    id:user.id
                 }
             }});
         }
