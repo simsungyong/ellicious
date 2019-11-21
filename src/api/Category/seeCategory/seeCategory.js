@@ -8,7 +8,7 @@ export default {
             const {userId} = args;
             return prisma.categories({where:{
                 user:{
-                    id:user
+                    id:userId
                 }
             }});
         }
