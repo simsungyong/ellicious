@@ -48,7 +48,7 @@ type Post {
   storeName: String!
   picked: [Pick!]! 
   isPicked: Boolean!
-  details: [String!]!
+  details: [String!]
   category: Category!
 }
 

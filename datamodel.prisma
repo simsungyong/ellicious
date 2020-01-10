@@ -97,3 +97,4 @@ type Pick{
   createdAt: DateTime! @createdAt
   updatedAt: DateTime! @updatedAt
 }
+

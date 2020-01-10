@@ -16,7 +16,7 @@ export default {
                 files,
                 rating,
                 category,  //categoryID
-                details} = args;
+                details} = args
             
             const post = await prisma.createPost({
                 caption,
@@ -26,7 +26,7 @@ export default {
                 storeLat,
                 storeLong,
                 rating,
-                details,
+                details:{set:details},
                 category:{connect:{id:category}},
                 user:{connect:{id:user.id}},
                 
