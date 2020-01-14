@@ -50,6 +50,7 @@ export default{
             return user.id === parentId;
         },
         posts: ({id})=>prisma.user({id}).posts(),
+
         
         /*categoryCount: ({id})=>prisma
             .usersConnection({where:{category_some}})*/

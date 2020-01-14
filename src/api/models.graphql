@@ -24,7 +24,7 @@ type User {
   category: [Category!]
   categoryCount: Int!
   avatar: String
-  
+
 }
 
 type Post {
