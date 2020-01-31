@@ -3,17 +3,22 @@ import {prisma} from '../../../../generated/prisma-client';
 export default{
     Mutation:{
         createAccount: async(_, args)=>{
-            const { username, email, firstName= "", lastName="", bio=""} = args;
+            const { phoneNum, password, username, email, firstName= "", lastName="", bio=""} = args;
             const exists = await prisma.$exists.user({
                 OR: [
                     {
                     username
                     },
-                    {email}
+                    {
+                        email
+                    },
+                    {
+                        phoneNum
+                    }
                 ]
             });
             if(exists){
-                throw Error("This username  email is already taken");
+                throw Error("아이디나, 이메일, 휴대폰 번호가 겹칩니다.");
             }
             try {
                 await prisma.createUser({
@@ -21,7 +26,9 @@ export default{
                     email,
                     firstName,
                     lastName,
-                    bio
+                    bio,
+                    password,
+                    phoneNum
                 });
                 return true;
                 

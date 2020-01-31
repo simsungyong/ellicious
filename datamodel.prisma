@@ -1,7 +1,7 @@
 type User {
   id: ID! @id
   username: String!
-  email: String! @unique
+  email: String! 
   firstName: String! @default(value: "")
   lastName: String!
   avatar: String
@@ -15,6 +15,8 @@ type User {
   loginSecret: String
   picks : [Pick!] @relation(name: "UsertoPickRelation", onDelete:CASCADE)
   category : [Category!] @relation(name: "UserToCategory", onDelete: CASCADE)
+  password: String
+  phoneNum: String! @unique
 }
 
 type Post {

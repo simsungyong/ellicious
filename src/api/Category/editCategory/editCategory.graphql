@@ -3,6 +3,6 @@ enum ACTIONS{
     EDIT
 }
 type Mutation{
-    editCategory(id: String!, categoryName: String! action: ACTIONS!):Category!
+    editCategory(id: String!, categoryName: String action: ACTIONS!):Category!
 }
 

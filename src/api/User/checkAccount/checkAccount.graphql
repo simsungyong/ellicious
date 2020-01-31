@@ -1,0 +1,3 @@
+type Query {
+  checkAccount(account: String!):Boolean!
+}
