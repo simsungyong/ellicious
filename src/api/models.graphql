@@ -1,7 +1,7 @@
 type User {
   id: ID!
-  username: String!
-  email: String!
+  username: String
+  email: String
   firstName: String!
   lastName: String!
   fullName: String
@@ -17,6 +17,7 @@ type User {
   rooms: [Room!]!
   loginSecret: String
   isFollowing: Boolean
+  
   isSelf: Boolean!
   createdAt: String
   updatedAt: String
@@ -82,7 +83,7 @@ type Comment {
 
 type File {
   id: ID!
-  url: String!
+  url: String
   post: Post!
   createdAt: String
   updatedAt: String

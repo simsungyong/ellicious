@@ -3,18 +3,10 @@ import {prisma} from '../../../../generated/prisma-client';
 export default{
     Mutation:{
         createAccount: async(_, args)=>{
-            const { phoneNum, password, username, email, firstName= "", lastName="", bio=""} = args;
+            const { username, phoneNum, password, firstName= "", lastName="", bio=""} = args;
             const exists = await prisma.$exists.user({
                 OR: [
-                    {
-                    username
-                    },
-                    {
-                        email
-                    },
-                    {
-                        phoneNum
-                    }
+                    { phoneNum}
                 ]
             });
             if(exists){
@@ -23,10 +15,8 @@ export default{
             try {
                 await prisma.createUser({
                     username,
-                    email,
                     firstName,
                     lastName,
-                    bio,
                     password,
                     phoneNum
                 });

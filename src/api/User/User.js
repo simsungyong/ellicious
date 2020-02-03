@@ -22,6 +22,7 @@ export default{
         fullName: parent=>{
             return `${parent.firstName} ${parent.lastName}`;
         },
+        
         isFollowing: async(parent,_,{request})=>{  //(parent, arg, request)
             const { user } = request;
             const { id: parentId} = parent;
