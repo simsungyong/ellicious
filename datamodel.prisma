@@ -1,7 +1,7 @@
 type User {
   id: ID! @id
-  username: String
-  email: String
+  username: String @unique
+  email: String 
   firstName: String @default(value: "")
   lastName: String
   avatar: String
@@ -17,13 +17,14 @@ type User {
   category : [Category!] @relation(name: "UserToCategory", onDelete: CASCADE)
   password: String
   phoneNum: String! @unique
+  notifyToken: String
 
 }
 
 type Post {
   id: ID! @id
   files: [File!]! @relation(name: "PostToFile", onDelete: CASCADE)
-  caption: String!
+  caption: String
   storeName: String!
   storeLat: Float
   storeLong: Float

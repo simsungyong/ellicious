@@ -17,7 +17,7 @@ type User {
   rooms: [Room!]!
   loginSecret: String
   isFollowing: Boolean
-  
+  notifyToken: String
   isSelf: Boolean!
   createdAt: String
   updatedAt: String
@@ -34,7 +34,7 @@ type User {
 type Post {
   id: ID!
   files: [File!]
-  caption: String!
+  caption: String
   likes: [Like!]!
   user: User!
   storeLat: Float
