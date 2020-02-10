@@ -92,20 +92,11 @@ type File {
 type Room {
   id: ID!
   participants: [User!]!
-  messages: [Message!]!
+  messages: String!
   createdAt: String
   updatedAt: String
 }
 
-type Message{
-  id: ID!
-  text: String!
-  from: User!
-  to: User!
-  room: Room!
-  createdAt: String
-  updatedAt: String
-}
 
 type UserProfile{
   user: User!

@@ -74,18 +74,12 @@ type File {
 type Room {
   id: ID! @id
   participants: [User!]!
-  messages: [Message!]!
-}
-
-type Message{
-  id: ID! @id
-  text: String!
-  from: User! @relation(name: "From")
-  to: User! @relation(name: "To")
-  room: Room!
+  messages: String!
   createdAt: DateTime! @createdAt
   updatedAt: DateTime! @updatedAt
 }
+
+
 
 type Category{
   id: ID! @id
