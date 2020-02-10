@@ -17,7 +17,7 @@ type User {
   category : [Category!] @relation(name: "UserToCategory", onDelete: CASCADE)
   password: String
   phoneNum: String! @unique
-  notifyToken: String
+  notifyToken: String @unique
 
 }
 

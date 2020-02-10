@@ -20,11 +20,18 @@ export default{
                     password,
                     phoneNum
                 });
-                return true;
                 
             } catch (error) {
-                return false;
+                throw Error("생성 실패")
+            } finally{
+                const user = await prisma.user({phoneNum});
+                if(user){
+                    return user;
+                }else{
+                    return null;
+                }
             }
         }
+
     }
 }

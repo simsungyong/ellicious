@@ -7,7 +7,7 @@ export default {
             isAuthenticated(request);
             const {user} = request;
             const {text, postId, headComment} = args;
-
+            //const token = await prisma.user()
             if(!headComment){
                 return prisma.createComment({
                     user:{

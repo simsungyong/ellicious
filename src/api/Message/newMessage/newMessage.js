@@ -4,17 +4,30 @@ export default {
     Subscription: {
         newMessage: {
             subscribe: (_, args) => {
-                const { roomId } = args;
-                return prisma.$subscribe.message({
-                    AND: [
-                        { mutation_in: "CREATED" },
-                        {
-                            node: {
-                                room: { id: roomId }
+                const { roomId,userId } = args;
+                if(roomId){
+                    return prisma.$subscribe.message({
+                        AND: [
+                            { mutation_in: "CREATED" },
+                            {
+                                node: {
+                                    room: { id: roomId }
+                                }
                             }
-                        }
-                    ]
-                }).node();
+                        ]
+                    }).node();
+                }else if(userId){
+                    return prisma.$subscribe.message({
+                        AND: [
+                            { mutation_in: "CREATED" },
+                            {
+                                node: {
+                                    to: { id: userId }
+                                }
+                            }
+                        ]
+                    }).node();
+                }    
             },
             resolve: payload => payload
         }

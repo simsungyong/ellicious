@@ -1,5 +1,6 @@
 import { isAuthenticated } from "../../../middlewares";
 import { prisma } from "../../../../generated/prisma-client";
+import axios from 'axios';
 
 export default {
     Mutation: {
@@ -7,6 +8,7 @@ export default {
             isAuthenticated(request);
             const {user} = request;
             const {postId} = args;
+            const token = await prisma.post({id:postId}).user().notifyToken();
 
             const filterOptions = {
                 AND : [
@@ -40,6 +42,13 @@ export default {
                             }
                         }
                     });
+                    if(token){
+                        await axios.post("https://exp.host/--/api/v2/push/send",{
+                        to : token,
+                        title:"ellicous",
+                        body: `${user.username}님이 맛지도를 Pick했습니다`
+                    });
+                    }
                 }
                 return true;
             } catch {
