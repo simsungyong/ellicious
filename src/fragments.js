@@ -27,16 +27,15 @@ export const PICKS_FRAGMENT = `
         ${USER_FRAGMENT}
     }`
 
-export const LIKES_FRAGMENT = `
+export const LIKES_FRAGMENT = `is
     id
     user{
         ${USER_FRAGMENT}
     }`;
 
 export const FILE_FRAGMENT = `
-    id
     url
-    `;
+`;
 
 
 

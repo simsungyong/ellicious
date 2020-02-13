@@ -71,6 +71,7 @@ type File {
   post: Post @relation(name: "PostToFile")
 }
 
+
 type Room {
   id: ID! @id
   participants: [User!]!
@@ -78,7 +79,6 @@ type Room {
   createdAt: DateTime! @createdAt
   updatedAt: DateTime! @updatedAt
 }
-
 
 
 type Category{
