@@ -13,7 +13,7 @@ export default {
                 where:{
                     to: user.id
                 }
-            }).$fragment(ALARM_FRAGMENT)
+            })
         }
     }
 }
