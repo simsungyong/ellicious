@@ -12,7 +12,7 @@ export default {
                     {mutation_in:"CREATED"},
                     {
                         node: {
-                            to:{
+                            to: {
                                 id:user.id
                             }
                         }
