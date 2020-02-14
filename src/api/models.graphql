@@ -27,6 +27,7 @@ type User {
   avatar: String
   password: String
   phoneNum: String!
+  alarm: [Alarm!]
   
 
 }
@@ -54,7 +55,7 @@ type Post {
   isPicked: Boolean!
   details: [String!]
   category: Category!
-  
+  alarm: [Alarm!]
 
 }
 
@@ -67,7 +68,14 @@ type Like {
   updatedAt: String
 }
 
-
+type Alarm {
+  id: ID!
+  from: User! 
+  to: String
+  category: String!
+  post: Post
+  check: Boolean!
+}
 
 type Comment {
   id: ID!
