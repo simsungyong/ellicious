@@ -7,7 +7,7 @@ export default {
         toggleLike: async(_,args,{request})=>{
             isAuthenticated(request);
             const {user} = request;
-            const {postId} = args;
+            const {postId, toId} = args;
             const token = await prisma.post({id:postId}).user().notifyToken();
             //const token = await prisma.post({id:postId}).user().notifyToken();
 
@@ -43,6 +43,22 @@ export default {
                             }
                         }
                     });
+                    await prisma.createAlarm({
+                        from:{
+                            connect: {
+                                id: user.id
+                            }
+                        },
+                        post: {
+                            connect:{
+                                id:postId
+                            }
+                        },
+                        to : toId,
+                        category:"like",
+                        check: false
+                    })
+
                     if(token){
                         const {data} = await axios.post("https://exp.host/--/api/v2/push/send",{
                         to : token,
