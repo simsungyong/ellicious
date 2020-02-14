@@ -6,7 +6,7 @@ import { ALARM_FRAGMENT } from "../../../fragments";
 
 export default {
     Query:{
-        searchUser: async(_,__,{request})=>{
+        getAlarm: async(_,__,{request})=>{
             isAuthenticated(request);
             const {user} = request;
             return prisma.alarms({
