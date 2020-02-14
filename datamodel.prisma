@@ -82,7 +82,7 @@ type Room {
 }
 type Alarm {
   id: ID! @id
-  from: User! @relation(name: "AlarmToUser")
+  from: User @relation(name: "AlarmToUser")
   to: String!
   category: String!
   post: Post @relation(name: "AlarmToPost")

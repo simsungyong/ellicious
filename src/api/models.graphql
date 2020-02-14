@@ -70,7 +70,7 @@ type Like {
 
 type Alarm {
   id: ID!
-  from: User! 
+  from: User
   to: String!
   category: String!
   post: Post
