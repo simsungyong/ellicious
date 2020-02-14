@@ -71,7 +71,7 @@ type Like {
 type Alarm {
   id: ID!
   from: User! 
-  to: String
+  to: User!
   category: String!
   post: Post
   check: Boolean!

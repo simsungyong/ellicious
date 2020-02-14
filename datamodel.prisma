@@ -83,10 +83,11 @@ type Room {
 type Alarm {
   id: ID! @id
   from: User! @relation(name: "AlarmToUser")
-  to: String
+  to: User! @relation(name: "AlarmToUser")
   category: String!
   post: Post @relation(name: "AlarmToPost")
   check: Boolean!
+  createdAt: DateTime! @createdAt
 }
 
 type Category{
