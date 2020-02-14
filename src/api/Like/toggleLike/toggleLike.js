@@ -54,11 +54,7 @@ export default {
                                 id:postId
                             }
                         },
-                        to : {
-                            connect:{
-                                id:toId
-                            }
-                        },
+                        to: toId,
                         category:"like",
                         check: false
                     })
