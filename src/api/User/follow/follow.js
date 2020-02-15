@@ -9,6 +9,16 @@ export default {
             const {id} = args;
             try{
                 await prisma.updateUser({where:{id:user.id}, data:{following:{connect:{id}}}});
+                await prisma.createAlarm({
+                    from:{
+                        connect: {
+                            id: user.id
+                        }
+                    },
+                    to: id,
+                    category:"follow",
+                    check: false
+                })
                 return true;
             }
             catch (error){

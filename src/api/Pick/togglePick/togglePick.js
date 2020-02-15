@@ -7,7 +7,7 @@ export default {
         togglePick: async(_,args,{request})=>{
             isAuthenticated(request);
             const {user} = request;
-            const {postId} = args;
+            const {postId, toId} = args;
             const token = await prisma.post({id:postId}).user().notifyToken();
 
             const filterOptions = {
@@ -42,6 +42,23 @@ export default {
                             }
                         }
                     });
+
+                    await prisma.createAlarm({
+                        from:{
+                            connect: {
+                                id: user.id
+                            }
+                        },
+                        post: {
+                            connect:{
+                                id:postId
+                            }
+                        },
+                        to: toId,
+                        category:"pick",
+                        check: false
+                    })
+
                     if(token){
                         await axios.post("https://exp.host/--/api/v2/push/send",{
                         to : token,

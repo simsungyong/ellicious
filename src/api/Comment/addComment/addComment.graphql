@@ -4,5 +4,5 @@ enum ACTIONS{
 }
 
 type Mutation {
-    addComment(text: String!, postId: String!, headComment: String): Comment!
+    addComment(text: String!, postId: String!, headComment: String, toId:String): Comment!
 }
