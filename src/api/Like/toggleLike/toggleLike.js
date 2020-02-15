@@ -43,21 +43,23 @@ export default {
                             }
                         }
                     });
-                    await prisma.createAlarm({
-                        from:{
-                            connect: {
-                                id: user.id
-                            }
-                        },
-                        post: {
-                            connect:{
-                                id:postId
-                            }
-                        },
-                        to: toId,
-                        category:"like",
-                        check: false
-                    })
+                    if(user.id !== toId) {
+                        await prisma.createAlarm({
+                            from:{
+                                connect: {
+                                    id: user.id
+                                }
+                            },
+                            post: {
+                                connect:{
+                                    id:postId
+                                }
+                            },
+                            to: toId,
+                            category:"like",
+                            check: false
+                        })
+                    }
 
                     if(token){
                         const {data} = await axios.post("https://exp.host/--/api/v2/push/send",{
