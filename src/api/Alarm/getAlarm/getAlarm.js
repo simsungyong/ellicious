@@ -12,7 +12,8 @@ export default {
             return prisma.alarms({
                 where:{
                     to: user.id
-                }
+                },
+                orderBy:"createdAt_DESC"
             })
         }
     }
