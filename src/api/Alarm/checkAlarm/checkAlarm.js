@@ -2,7 +2,7 @@ import {prisma} from '../../../../generated/prisma-client';
 
 export default {
     Mutation: {
-        checkAlarm: async(_,args, {request})=>{
+        checkAlarm: async(_,args)=>{
             const { alarmId, check } = args;
 
             return prisma.updateAlarm({
