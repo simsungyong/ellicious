@@ -16,7 +16,7 @@ export default {
                         id_in:[...following.map(user=>user.id), user.id]
                     }
                 },
-                orderBy:"createdAt_DESC"
+                orderBy:"createdAt_ASC"
             })
         }
     }
