@@ -1,16 +1,16 @@
 import {prisma} from '../../../../generated/prisma-client';
-import {generateSecretCode, sendMail, sendSecretMail} from '../../../utils';
+import {generateSecretCode, sendSecretSMS, sendSMS} from '../../../utils';
 
 export default {
     Mutation:{
         requestSecret: async(_, args, {request})=>{
             console.log(request.user);
-            const {email} = args;
-            const loginSecret = generateSecretCode();   //secret code 생성  utils에 명시해놈.
+            const {phoneNum} = args;
+            const secretNumber = generateSecretCode();   //secret code 생성  utils에 명시해놈.
             
             try{
-                await sendSecretMail(email, loginSecret);
-                await prisma.updateUser({data:{loginSecret}, where:{email}});
+                await sendSecretSMS(phoneNum, secretNumber);
+                await prisma.updateUser({data:{loginSecret:secretNumber}, where:{phoneNum}});
                 return true;
             }catch(error){
                 console.log(error);

@@ -6,7 +6,6 @@ import nodemailer from 'nodemailer';
 import sgTransport from 'nodemailer-sendgrid-transport';
 import jwt from 'jsonwebtoken';
 import aligoapi from 'aligoapi';
-import { SMS } from 'aws-sdk';
 
 
 export const generateSecretCode = () => {
@@ -49,7 +48,7 @@ export const sendSecretSMS = (phoneNumber, secretNumber) => {
     const SMS = {
         sender: "01025371907",
         receiver: phoneNumber,
-        msg: `hihi! ${secretNumber}`,
+        msg: `인증코드는 ${secretNumber} 입니다`,
         msg_type: SMS,
         title: "Ellicious",
         // destination: % 고객명 % 치환용 입력
