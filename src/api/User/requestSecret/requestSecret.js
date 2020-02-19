@@ -3,17 +3,16 @@ import {generateSecretCode, sendSecretSMS, sendSMS} from '../../../utils';
 
 export default {
     Mutation:{
-        requestSecret: async(_, args, {request})=>{
+        requestSecret: async(_, args)=>{
             const {phoneNum} = args;
             const secretNumber = generateSecretCode();   //secret code 생성  utils에 명시해놈.
             console.log(secretNumber)
             try{
                 await sendSecretSMS(phoneNum, secretNumber);
-                await prisma.updateUser({data:{loginSecret:secretNumber}, where:{phoneNum}});
-                return true;
+                return secretNumber;
             }catch(error){
                 console.log(error);
-                return false;
+                return secretNumber;
             }
         }
     }

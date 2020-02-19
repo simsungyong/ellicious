@@ -1,3 +1,0 @@
-type Mutation{
-    confirmCode(secretNum:String!, phoneNum:String!):Boolean!
-}
