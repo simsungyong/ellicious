@@ -35,3 +35,4 @@ export const uploadController = (req, res) => {
   })
   res.json({temp});
 };
+
