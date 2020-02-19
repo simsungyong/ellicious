@@ -9,13 +9,11 @@ import {send} from './dkanrjsk';
 
 
 export const generateSecretCode = () => {
-    let randomNum;
+    let randomNum="";
     for(var i =0; i< 6; i++){
         const random =Math.floor(Math.random()*10).toString();
         randomNum+=random
     }
-    console.log(randomNum)
-    
     return randomNum
 }
 
