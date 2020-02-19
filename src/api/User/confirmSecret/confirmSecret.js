@@ -9,7 +9,6 @@ export default {
             const user = await prisma.user({phoneNum});
             if(user){
                 if(password=== user.password){ //복붙한 secret이랑 디비저장되 loginsecret이랑 비교
-                    //await prisma.updateUser({where:{id:user.id}, data:{loginSecret:""}});
                     return generateToken(user.id);
                 }
                 else {
