@@ -9,8 +9,14 @@ import {send} from './dkanrjsk';
 
 
 export const generateSecretCode = () => {
-    const randomNum = Math.floor(Math.random() * nouns.length);
-    return `${adjectives[randomNum]} ${nouns[randomNum]}`;
+    let randomNum;
+    for(var i =0; i< 6; i++){
+        const random =Math.floor(Math.random()*10).toString();
+        randomNum+=random
+    }
+    console.log(randomNum)
+    
+    return randomNum
 }
 
 
@@ -49,7 +55,7 @@ export const sendSecretSMS = (phoneNumber, secretNumber) => {
         body:{
             sender: "01025371907",
             receiver: phoneNumber,
-            msg: `인증코드는 ${secretNumber} 입니다`,
+            msg: `Ellicious 담당자입니다. 인증코드는 ${secretNumber} 입니다`,
             msg_type: "SMS",
         }
         // destination: % 고객명 % 치환용 입력
