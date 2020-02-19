@@ -12,7 +12,6 @@ type User {
   bio: String
   comments: [Comment!]! @relation(name: "CommentsOfUser", onDelete: CASCADE)
   rooms: [Room!]!
-  loginSecret: String
   picks : [Pick!] @relation(name: "UsertoPickRelation", onDelete:CASCADE)
   category : [Category!] @relation(name: "UserToCategory", onDelete: CASCADE)
   password: String
