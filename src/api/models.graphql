@@ -15,7 +15,6 @@ type User {
   bio: String
   comments: [Comment!]!
   rooms: [Room!]!
-  loginSecret: String
   isFollowing: Boolean
   notifyToken: String
   isSelf: Boolean!
