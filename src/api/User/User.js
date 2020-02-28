@@ -5,6 +5,7 @@ export default{
         picks:({id})=>prisma.user({id}).picks(),
         following: ({id})=>prisma.users({where:{followers_some:{id}}}),
         followers: ({id})=>prisma.users({where:{following_some:{id}}}),
+
         category:({id})=>prisma.categories({where:{user:{id}}}),
         categoryCount:({id})=>prisma.categoriesConnection({where:{user:{id}}}).aggregate().count(),
         rooms: ({id})=>prisma.rooms({where:{participants_some:{id}}}),
@@ -22,7 +23,22 @@ export default{
         fullName: parent=>{
             return `${parent.firstName} ${parent.lastName}`;
         },
-        
+        feedCount: ({id})=>{
+                
+                const following = await prisma.user({id:id}).following();
+                return prisma.posts({
+                    where:{
+                        user:{
+                            id_in:[...following.map(user=>user.id), user.id]
+                        }
+                    },
+                }).count()
+            },
+
+
+
+
+
         isFollowing: async(parent,_,{request})=>{  //(parent, arg, request)
             const { user } = request;
             const { id: parentId} = parent;

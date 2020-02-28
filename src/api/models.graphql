@@ -11,6 +11,7 @@ type User {
   followers: [User!]
   postsCount: Int!
   followingCount: Int!
+  feedCount: Int!
   followersCount: Int!
   bio: String
   comments: [Comment!]!
