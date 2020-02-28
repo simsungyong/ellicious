@@ -23,16 +23,16 @@ export default{
         fullName: parent=>{
             return `${parent.firstName} ${parent.lastName}`;
         },
-        feedCount: ({id})=>{
+        feedCount: async({id})=>{
                 
                 const following = await prisma.user({id:id}).following();
-                return prisma.posts({
+                return prisma.postsConnection({
                     where:{
                         user:{
-                            id_in:[...following.map(user=>user.id), user.id]
+                            id_in:[...following.map(user=>user.id), id]
                         }
                     },
-                }).count()
+                }).aggregate().count()
             },
 
 
