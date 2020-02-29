@@ -19,8 +19,10 @@ export default {
                         data:{
                             caption,
                             category,
+                            details:{set:details},
+                            //category:{connect:{id:category}},
+
                             rating,
-                            details
                         }
                     });
             }else if(action === DELETE){
