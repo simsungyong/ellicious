@@ -18,9 +18,9 @@ export default {
                         where:{id},
                         data:{
                             caption,
-                            category,
+                            
                             details:{set:details},
-                            //category:{connect:{id:category}},
+                            category:{connect:{id:category}},
 
                             rating,
                         }
