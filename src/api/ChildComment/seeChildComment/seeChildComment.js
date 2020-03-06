@@ -1,20 +1,19 @@
-import { isAuthenticated } from "../../../middlewares";
 import {prisma} from '../../../../generated/prisma-client';
 
 export default {
     Query:{
-        seeComment: async(_,args)=>{
+        seeChildComment: async(_,args)=>{
             
-            const {postId, headComment} = args;
+            const {headComment} = args;
             /*const text = await prisma.comment({id});
             const posts = await prisma.user({id}).posts;
             const categories = await prisma.user({id}).category;
             const picks = await prisma.user({id}).picks;*/
             
-            return prisma.comments({
+            return prisma.childComments({
                 where:{
-                    post: {
-                        id: postId
+                    headComment: {
+                        id: headComment
                     }
                 },
                 orderBy:"createdAt_ASC"

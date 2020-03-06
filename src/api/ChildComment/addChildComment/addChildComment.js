@@ -3,23 +3,23 @@ import { prisma } from "../../../../generated/prisma-client";
 
 export default {
     Mutation: {
-        addComment: async (_, args, {request})=>{
+        addChildComment: async (_, args, {request})=>{
             isAuthenticated(request);
             const {user} = request;
-            const {text, postId} = args;
+            const {text, headComment, postId} = args;
             //const token = await prisma.user()
-                return prisma.createComment({
+                return prisma.createChildComment({
                     user:{
                         connect:{
                             id:user.id
                         }
                     },
-                    
-                    post:{
+                    headComment:{
                         connect:{
-                            id: postId
+                            id:headComment
                         }
                     },
+                   
                     text,
                 
                 });

@@ -1,8 +1,5 @@
-enum ACTIONS{
-    DELETE
-    EDIT
-}
+
 
 type Mutation {
-    addComment(text: String!, postId: String!, headComment: String, toId:String): Comment!
+    addComment(text: String!, postId: String!): Comment!
 }

@@ -14,6 +14,18 @@ export default {
             })
             .aggregate()
             .count(),
+        
+        childCommentCount: parent=>
+        prisma.childCommentsConnection({
+            where: { headComment: {post: { id: parent.id}}}
+        }).aggregate().count(),
+        // childCommentCount: parent=>
+        // prisma
+        //     .commentsConnection({
+        //         where: { post: { id: parent.id } }
+        //         })
+                
+        // ,
         user: ({id})=> prisma.post({id}).user(),
         picked:({id})=> prisma.post({id}).picked(),
         likes:({id})=> prisma.post({id}).likes(),

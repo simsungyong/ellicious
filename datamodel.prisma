@@ -11,6 +11,7 @@ type User {
   followers: [User!] @relation(name: "FollowRelation")
   bio: String
   comments: [Comment!]! @relation(name: "CommentsOfUser", onDelete: CASCADE)
+  childComments: [ChildComment!]! @relation(name: "ChildCommentOfUser", onDelete: CASCADE)
   rooms: [Room!]!
   picks : [Pick!] @relation(name: "UsertoPickRelation", onDelete:CASCADE)
   category : [Category!] @relation(name: "UserToCategory", onDelete: CASCADE)
@@ -18,6 +19,7 @@ type User {
   phoneNum: String! @unique
   notifyToken: String @unique
   alarm: [Alarm!] @relation(name:"AlarmToUser", onDelete:CASCADE)
+
 
 }
 
@@ -59,8 +61,16 @@ type Comment {
   createdAt: DateTime! @createdAt
   updatedAt: DateTime! @updatedAt
   likes: [Like!]! @relation(name:"LikesInComment", onDelete:CASCADE)
-  headComment: Comment @relation(name: "RelationComment", onDelete:CASCADE)
-  childComment: [Comment!] @relation(name: "RelationComment")
+  childComments: [ChildComment] @relation(name: "RelationComment", onDelete:CASCADE)
+}
+
+type ChildComment {
+  id: ID! @id
+  user: User @relation(name:"ChildCommentOfUser")
+  text:String!
+  createdAt : DateTime! @createdAt
+  updatedAt : DateTime! @updatedAt
+  headComment: Comment! @relation(name: "RelationComment")
 }
 
 

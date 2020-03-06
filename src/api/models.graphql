@@ -15,6 +15,7 @@ type User {
   followersCount: Int!
   bio: String
   comments: [Comment!]!
+  childComments: [ChildComment!]!
   rooms: [Room!]!
   isFollowing: Boolean
   notifyToken: String
@@ -43,6 +44,7 @@ type Post {
   placeId: String
   comments: [Comment!]!
   commentCount: Int!
+  childCommentCount: Int!
   pickCount: Int!
   isLiked: Boolean!
   likeCount: Int!
@@ -82,12 +84,22 @@ type Comment {
   text: String!
   user: User!
   post: Post
-  headComment: Comment
   createdAt: String
   updatedAt: String
-  childComment: [Comment!]
+  childComments: [ChildComment!]
+  childCount: Int!
   likes: [Like!]!
 }
+
+type ChildComment {
+  id: ID!
+  text:String!
+  createdAt : String
+  user: User!
+  updatedAt : String
+  headComment: Comment!
+}
+
 
 type File {
   id: ID!
