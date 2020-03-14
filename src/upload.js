@@ -29,14 +29,14 @@ import s3Storage from 'multer-sharp-s3';
 aws.config.update({
   secretAccessKey: process.env.AWS_BUCKET_SECRET, // Not working key, Your SECRET ACCESS KEY from AWS should go here, never share it!!!
   accessKeyId: process.env.AWS_BUCKET, // Not working key, Your ACCESS KEY ID from AWS should go here, never share it!!!
-  region: "ap-northeast-2", // region of your bucket
+  region: "us-east-2", // region of your bucket
 })
  
 const s3 = new aws.S3()
 
 const storage = s3Storage({
   s3,
-  Bucket: "elliciouscontainer",
+  Bucket: "elliciousbucket",
   Key: function(req, file, cb) {
     cb(null, Date.now().toString()+".jpg");
   },
