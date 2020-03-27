@@ -18,6 +18,7 @@ type User {
   password: String
   phoneNum: String! @unique
   notifyToken: String @unique
+  followersCount: Int
   alarm: [Alarm!] @relation(name:"AlarmToUser", onDelete:CASCADE)
 
 

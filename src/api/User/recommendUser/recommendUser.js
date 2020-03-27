@@ -6,8 +6,16 @@ export default {
             return prisma.users({
                 first: args.items,
                 skip: args.pageNumber,
+                orderBy:"followersCount_DESC"
             });
+            
           }
         
     }
 }
+
+// followersCount: ({ id }) =>
+//         prisma
+//             .usersConnection({ where: { following_some: { id } } })
+//             .aggregate()
+//             .count(),
