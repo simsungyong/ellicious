@@ -7,6 +7,7 @@ export default {
             isAuthenticated(request);
             const {user} = request;  //follow할 상대 ID 
             const {id} = args;
+            const token = await prisma.user({id}).notifyToken();
 
             try{
                 await prisma.updateUser({where:{id:user.id}, data:{following:{connect:{id}}}});
@@ -21,7 +22,14 @@ export default {
                     to: id,
                     category:"follow",
                     check: false
-                })
+                });
+                if(token){
+                    await axios.post("https://exp.host/--/api/v2/push/send",{
+                    to : token,
+                    title:"ellicous",
+                    body: `${user.username}님이 팔로우를 했습니다`
+                });
+                }
                 return true;
             }
             catch (error){

@@ -1,5 +1,4 @@
 import {prisma} from '../../../../generated/prisma-client';
-import {generateSecretCode, sendSecretSMS, sendSMS} from '../../../utils';
 
 export default {
     Mutation:{
